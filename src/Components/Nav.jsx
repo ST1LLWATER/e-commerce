@@ -1,12 +1,15 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { BiSearchAlt } from "react-icons/bi";
+import { TiShoppingCart } from "react-icons/ti";
+import { FaOpencart } from "react-icons/fa";
 
 function Nav() {
   return (
     <header className="text-gray-400 bg-gray-900 body-font">
       <div className="w-full tracking-wider flex flex-wrap p-3 flex-col md:flex-row items-center">
-        <div className="title-font font-medium px-2 text-2xl cursor-default whitespace-nowrap  text-white">
-          {"E-COMMERCE </>"}
+        <div className="site_brand space-x-2 title-font font-medium px-2 text-2xl cursor-default whitespace-nowrap text-white">
+          <span>ShopPrix</span>
+          <FaOpencart className="inline text-3xl pb-1" />
         </div>
         <div className="m-auto flex justify-center items-stretch w-6/12 rounded-full overflow-hidden">
           <input
@@ -24,15 +27,30 @@ function Nav() {
           </div>
         </div>
         <nav className=" flex flex-wrap justify-center items-center text-lg ">
-          <Link to="/" className="px-4 py-2 hover:text-white">
+          <NavLink
+            to="/"
+            exact
+            activeClassName="activeLink"
+            className="px-4 py-2 hover:text-white"
+          >
             HOME
-          </Link>
-          <Link to="/" className=" px-4 py-2 hover:text-white">
+          </NavLink>
+          <NavLink
+            to="/wishlist"
+            exact
+            activeClassName="activeLink"
+            className=" px-4 py-2 hover:text-white"
+          >
             WISHLIST
-          </Link>
-          <Link to="/" className="px-4 py-2 hover:text-white">
-            CART
-          </Link>
+          </NavLink>
+          <NavLink
+            to="/cart"
+            exact
+            activeClassName="activeLink"
+            className="px-4 py-2 hover:text-white text-2xl"
+          >
+            <TiShoppingCart className="text-3xl" />
+          </NavLink>
         </nav>
       </div>
     </header>
